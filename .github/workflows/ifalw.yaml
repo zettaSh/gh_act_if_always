@@ -17,4 +17,4 @@ jobs:
     if: ${{ always() }}
     steps:
       - run: echo "I should have been displayed"
-      - run: echo ${{needs.job1.outputs.output1}}
+      - run: echo job1out1 is ${{needs.job1.outputs.output1}}
