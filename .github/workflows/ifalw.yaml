@@ -9,6 +9,7 @@ jobs:
     if: false
     steps:
       - run: echo "I am skipped"
+      - run: exit 1
 
   job2:
     runs-on: ubuntu-latest
