@@ -9,12 +9,12 @@ jobs:
     # if: false
     steps:
       - run: echo "I am skipped"
-      - run: sleep 20s
+      - run: exit 1
   job2:
     runs-on: ubuntu-latest
     name: Mustn't be skipped
     needs: job1
-    # if: ${{ always() }}
+    if: ${{ always() }}
     steps:
       - run: echo "I should have been displayed"
       - run: echo job1out1 is ${{needs.job1.outputs.output1}}
