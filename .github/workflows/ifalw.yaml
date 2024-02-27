@@ -1,0 +1,19 @@
+name: ifalw
+
+on: push
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    name: Skipped job
+    if: false
+    steps:
+      - run: echo "I am skipped"
+
+  job2:
+    runs-on: ubuntu-latest
+    name: Mustn't be skipped
+    needs: job1
+    if: always()
+    steps:
+      - run: echo "I should have been displayed"
