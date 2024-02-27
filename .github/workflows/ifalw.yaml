@@ -9,8 +9,7 @@ jobs:
     # if: false
     steps:
       - run: echo "I am skipped"
-      - run: exit 1
-
+      - run: sleep 20s
   job2:
     runs-on: ubuntu-latest
     name: Mustn't be skipped
