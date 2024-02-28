@@ -14,7 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Mustn't be skipped
     needs: job1
-    if: ${{ always() }}
+    # if: ${{ always() }}
+    if: true
     steps:
       - run: echo "I should have been displayed"
       - run: echo job1out1 is ${{needs.job1.outputs.output1}}
