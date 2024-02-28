@@ -14,11 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Mustn't be skipped
     needs: [job1]
+    if: always()
     # if: ${{ always() && 2 > 1 }} # run
     # if: true # NOT run
     # if: ${{ 2 > 1 }} # NOT run
     # if: ${{ 2 > 1 && always() }} # run
-    if: ${{ 2 > 1 && true }} # NOT run
+    # if: ${{ 2 > 1 && true }} # NOT run
     steps:
       - run: echo "I should have been displayed"
       - run: echo job1out1 is ${{needs.job1.outputs.output1}}
